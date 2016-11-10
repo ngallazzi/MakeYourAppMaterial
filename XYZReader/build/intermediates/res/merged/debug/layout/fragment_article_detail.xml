@@ -1,0 +1,72 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--suppress AndroidLintContentDescription -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/text_end_padding"
+            android:orientation="vertical">
+            <com.example.xyzreader.ui.DynamicHeightImageView
+                android:id="@+id/dhiwDetailArticlePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/photo_background_protection"
+                android:transitionName="@string/transition_photo_id" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_dark_background"
+                android:paddingStart="@dimen/detail_inner_horiz_margin"
+                android:paddingEnd="@dimen/detail_inner_horiz_margin"
+                android:paddingTop="@dimen/detail_text_vertical_padding"
+                android:paddingBottom="@dimen/detail_text_vertical_padding"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvDetailArticleTitle"
+                    style="?android:attr/textAppearanceLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/detail_title_text_size"
+                    android:lineSpacingMultiplier="0.9" />
+                <TextView
+                    android:id="@+id/tvDetailArticleByLine"
+                    style="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#8fff" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvDetailArticleBody"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/detail_text_vertical_padding"
+                android:layout_marginStart="@dimen/detail_inner_horiz_margin"
+                android:layout_marginEnd="@dimen/detail_inner_horiz_margin"
+                android:textColor="@color/theme_primary_text"
+                android:textColorLink="@color/theme_accent"
+                android:textSize="@dimen/detail_body_text_size"
+                android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
+        </LinearLayout>
+    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        app:fabSize="normal"
+        android:layout_gravity="bottom|end"
+        android:id="@+id/fabShare"
+        android:src="@drawable/ic_share"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/action_share" />
+</android.support.design.widget.CoordinatorLayout>

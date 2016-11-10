@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="24"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="32313297994473"
+    token="650376470583242431"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="0" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <build
+        timestamp="31973785669662"
+        verifier="MANIFEST_FILE_CHANGE" >
+        <artifact
+            location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\outputs\apk\XYZReader-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="32222769124875"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="32313297994473"
+        verifier="COLD_SWAP_REQUESTED" />
+
+</instant-run>

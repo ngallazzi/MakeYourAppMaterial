@@ -1,0 +1,12 @@
+<resources>
+    <!-- detail -->
+    <dimen name="detail_title_text_size">20sp</dimen>
+    <dimen name="detail_body_text_size">16sp</dimen>
+    <dimen name="detail_text_vertical_padding">8sp</dimen>
+    <dimen name="text_end_padding">24dp</dimen>
+    <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
+    <dimen name="list_horizontal_padding">16dp</dimen>
+    <dimen name="list_above_padding">8dp</dimen>
+    <dimen name="app_bar_elevation">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

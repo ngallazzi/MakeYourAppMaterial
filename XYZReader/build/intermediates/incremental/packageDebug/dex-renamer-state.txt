@@ -1,0 +1,7 @@
+#Thu Nov 10 18:20:21 CET 2016
+base.0=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_0001593ef6b2360115b83fcf9ce7cee8e5fde077
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_92dd9ce86ba7728734175e314f82cb1395169c7c\\classes.dex
+base.1=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_92dd9ce86ba7728734175e314f82cb1395169c7c
+file.0=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_0001593ef6b2360115b83fcf9ce7cee8e5fde077\\classes.dex

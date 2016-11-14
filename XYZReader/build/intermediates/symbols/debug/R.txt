@@ -935,9 +935,8 @@ int string bottom_sheet_behavior 0x7f060026
 int string character_counter_pattern 0x7f060027
 int string search_menu_title 0x7f060013
 int string status_bar_notification_info_overflow 0x7f060014
-int string transition_photo_id 0x7f060028
-int string up 0x7f060029
-int string welcome_xyz_reader 0x7f06002a
+int string up 0x7f060028
+int string welcome_xyz_reader 0x7f060029
 int style AlertDialog_AppCompat 0x7f08008e
 int style AlertDialog_AppCompat_Light 0x7f08008f
 int style Animation_AppCompat_Dialog 0x7f080090

@@ -596,7 +596,6 @@
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="transition_photo_id" translatable="false">photo_trans</string>
     <string name="up">Up</string>
     <string name="welcome_xyz_reader">Welcome to XYZ Reader!</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>

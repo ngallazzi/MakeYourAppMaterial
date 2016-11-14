@@ -1751,12 +1751,12 @@
                 "from": {
                     "file": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\src\\main\\res\\values-v21\\styles.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 59,
-                        "endLine": 8,
+                        "startOffset": 57,
+                        "endLine": 7,
                         "endColumn": 12,
-                        "endOffset": 412
+                        "endOffset": 410
                     }
                 }
             },

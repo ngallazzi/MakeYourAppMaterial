@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Nov 14 19:25:37 CET 2016
+#Wed Nov 23 20:30:17 CET 2016
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v17\\notification_template_part_chronometer.xml

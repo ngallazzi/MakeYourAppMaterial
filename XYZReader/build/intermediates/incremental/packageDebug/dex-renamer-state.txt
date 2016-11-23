@@ -1,4 +1,4 @@
-#Mon Nov 14 19:20:56 CET 2016
+#Wed Nov 23 20:28:39 CET 2016
 base.0=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_0001593ef6b2360115b83fcf9ce7cee8e5fde077
 renamed.1=classes.dex
 renamed.0=classes2.dex

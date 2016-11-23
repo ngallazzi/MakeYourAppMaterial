@@ -5,46 +5,40 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="196266728322822"
+    timestamp="39817741397074"
     token="650376470583242431"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="690" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="25" />
+        duration="0" />
     <task
         name="verifier"
-        duration="4" />
+        duration="0" />
 
     <artifact
         location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
         type="RESOURCES" />
-    <artifact
-        location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-        type="DEX" />
 
     <build
-        timestamp="195976948231354"
+        timestamp="39711749921798"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\outputs\apk\XYZReader-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="196266728322822"
+        timestamp="39817741397074"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
             type="RESOURCES" />
-        <artifact
-            location="C:\Sviluppo\Mobile\AndroidStudio\Nanodegree\MakeYourAppMaterial\XYZReader\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

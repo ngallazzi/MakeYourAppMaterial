@@ -4,12 +4,12 @@
         "source": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_switch_thumb.xml"
     },
     {
-        "merged": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_seek_thumb.xml"
-    },
-    {
         "merged": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_spinner.xml",
         "source": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color-v23\\abc_tint_seek_thumb.xml"
     },
     {
         "merged": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_edittext.xml",

@@ -7,8 +7,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -49,8 +53,13 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
     private Adapter mAdapter;
     private Context mContext;
     private StaggeredGridLayoutManager msglManager;
-    @BindView (R.id.srlArticleList) SwipeRefreshLayout mSwipeRefreshLayout;
-    @BindView (R.id.rvArticleList) RecyclerView mRecyclerView;
+    @BindView (R.id.clArticleList)
+    CoordinatorLayout clArticleList;
+    @BindView (R.id.srlArticleList)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView (R.id.rvArticleList)
+    RecyclerView mRecyclerView;
+    Snackbar mySnackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +68,10 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
         mContext = this;
         ButterKnife.bind(this);
         initSwipeLayout();
+        /* Init no network snackbar */
+        mySnackbar = Snackbar.make(clArticleList, R.string.unable_to_refresh, Snackbar.LENGTH_INDEFINITE);
+        mySnackbar.setAction(R.string.action_settings, new MySettingsClickListener());
+
         getLoaderManager().initLoader(0, null, this);
         if (savedInstanceState != null) {
             // Restore scroll position on RecyclerVIew
@@ -66,6 +79,7 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
             // Probably initialize members with default values for a new instance
             refresh();
         }
+
     }
 
     private void initSwipeLayout(){
@@ -81,7 +95,28 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
     }
 
     private void refresh() {
-        startService(new Intent(this, UpdaterService.class));
+        if (isOnline()){
+            mySnackbar.dismiss();
+            startService(new Intent(this, UpdaterService.class));
+        }else{
+            mIsRefreshing = false;
+            updateRefreshingUI();
+            mySnackbar.show();
+        }
+    }
+
+    public class MySettingsClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            startActivityForResult(new Intent(android.provider.Settings.ACTION_SETTINGS), 0);
+        }
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
     @Override

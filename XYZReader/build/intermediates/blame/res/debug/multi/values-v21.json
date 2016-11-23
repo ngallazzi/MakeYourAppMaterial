@@ -1746,7 +1746,7 @@
                     "startOffset": 18450,
                     "endLine": 258,
                     "endColumn": 12,
-                    "endOffset": 18798
+                    "endOffset": 18791
                 },
                 "from": {
                     "file": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\src\\main\\res\\values-v21\\styles.xml",
@@ -1756,7 +1756,7 @@
                         "startOffset": 57,
                         "endLine": 7,
                         "endColumn": 12,
-                        "endOffset": 410
+                        "endOffset": 403
                     }
                 }
             },
@@ -1764,10 +1764,10 @@
                 "to": {
                     "startLine": 259,
                     "startColumn": 4,
-                    "startOffset": 18803,
+                    "startOffset": 18796,
                     "endLine": 261,
                     "endColumn": 12,
-                    "endOffset": 18992
+                    "endOffset": 18985
                 },
                 "from": {
                     "file": "C:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\values-v21\\values-v21.xml",

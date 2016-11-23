@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Nov 14 19:20:56 CET 2016
+#Wed Nov 23 20:28:40 CET 2016
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=C\:\\Sviluppo\\Mobile\\AndroidStudio\\Nanodegree\\MakeYourAppMaterial\\XYZReader\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png

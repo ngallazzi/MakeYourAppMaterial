@@ -69,6 +69,8 @@
         app:fabSize="normal"
         android:layout_gravity="bottom|end"
         android:id="@+id/fabShare"
+        app:elevation="@dimen/fab_resting_elevation"
+        app:pressedTranslationZ="12dp"
         android:src="@drawable/ic_share"
         android:layout_margin="@dimen/fab_margin"
         android:layout_width="wrap_content"

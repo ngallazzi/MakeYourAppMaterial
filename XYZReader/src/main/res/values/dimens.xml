@@ -9,4 +9,11 @@
     <dimen name="list_above_padding">8dp</dimen>
     <dimen name="detail_image_max_height">212dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <!-- Floating action button -->
+    <dimen name="fab_resting_elevation">6dp</dimen>
+    <dimen name="fab_pressed_translation">12dp</dimen>
+    <!-- Card view -->
+    <dimen name="card_resting_elevation">3dp</dimen>
+    <!-- App bar -->
+    <dimen name="app_bar_elevation">4dp</dimen>
 </resources>

@@ -11,7 +11,6 @@ import com.android.volley.toolbox.NetworkImageView;
 public class DynamicHeightImageView extends ImageView {
     private float mAspectRatio = 1.5f;
     private final String TAG = DynamicHeightImageView.class.getSimpleName();
-    private final int maxHeight = 300;
 
     public DynamicHeightImageView(Context context) {
         super(context);

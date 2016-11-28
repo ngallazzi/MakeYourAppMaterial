@@ -5,6 +5,7 @@
     android:alpha="0"
     >
     <ScrollView
+        android:id="@+id/svArticleContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -14,10 +15,11 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/text_end_padding"
             android:orientation="vertical">
-            <com.example.xyzreader.ui.DynamicHeightImageView
+            <ImageView
                 android:id="@+id/dhiwDetailArticlePhoto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="@dimen/detail_image_max_height"
                 android:scaleType="centerCrop"
                 android:src="@drawable/photo_background_protection" />
             <LinearLayout
@@ -35,7 +37,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                    android:fontFamily="sans-serif-condensed"
                     android:textColor="#fff"
                     android:textStyle="bold"
                     android:textSize="@dimen/detail_title_text_size"
@@ -46,6 +47,7 @@
                     style="?android:attr/textAppearanceSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="normal"
                     android:textColor="#8fff"
                     />
             </LinearLayout>

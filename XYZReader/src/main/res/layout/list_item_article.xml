@@ -10,8 +10,7 @@
     android:focusable="true"
     android:foreground="?selectableItemBackground"
     app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="true"
-    app:cardElevation="@dimen/card_resting_elevation">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +21,7 @@
         <com.example.xyzreader.ui.DynamicHeightImageView
             android:id="@+id/dhimListItemPhoto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:background="@color/photo_placeholder" />
 

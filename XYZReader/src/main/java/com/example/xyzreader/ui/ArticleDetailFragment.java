@@ -9,14 +9,18 @@ import android.content.Loader;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +45,9 @@ import com.android.volley.toolbox.ImageLoader;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import java.io.InputStream;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -48,7 +55,7 @@ import com.squareup.picasso.Picasso;
  * tablets) or a {@link ArticleDetailActivity} on handsets.
  */
 public class ArticleDetailFragment extends Fragment implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+        LoaderManager.LoaderCallbacks<Cursor>{
     private static final String TAG = "ArticleDetailFragment";
 
     public static final String ARG_ITEM_ID = "item_id";
@@ -60,6 +67,7 @@ public class ArticleDetailFragment extends Fragment implements
     private Context mContext;
     private AppCompatActivity mActivity;
     private Toolbar tbDetailArticle;
+    private NestedScrollView svArticleContainer;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -118,10 +126,13 @@ public class ArticleDetailFragment extends Fragment implements
                         .getIntent(), getString(R.string.action_share)));
             }
         });
+        svArticleContainer = (NestedScrollView) mRootView.findViewById(R.id.svArticleContainer);
         setUpToolbar();
         bindViews();
         return mRootView;
     }
+
+
 
     private void setUpToolbar(){
         tbDetailArticle = (Toolbar) mRootView.findViewById(R.id.tbDetailArticle);
@@ -140,7 +151,7 @@ public class ArticleDetailFragment extends Fragment implements
             return;
         }
         TextView tvDetailArticleBody = (TextView) mRootView.findViewById(R.id.tvDetailArticleBody);
-        TextView tvDetailArticleInfos = (TextView) mRootView.findViewById(R.id.tvDetailArticleInfos);
+        final TextView tvDetailArticleInfos = (TextView) mRootView.findViewById(R.id.tvDetailArticleInfos);
         TextView tvDetailArticleTitle = (TextView) mRootView.findViewById(R.id.tvDetailArticleTitle);
 
         CollapsingToolbarLayout ctlDetailArticle = (CollapsingToolbarLayout) mRootView.findViewById(R.id.ctlDetailArticle);
@@ -151,19 +162,64 @@ public class ArticleDetailFragment extends Fragment implements
             ctlDetailArticle.setTitle(itemTitle);
             ctlDetailArticle.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
             tvDetailArticleTitle.setText(itemTitle);
-            Spanned publishingDateAndAuthor = Html.fromHtml(
-                    DateUtils.getRelativeTimeSpanString(
-                            mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
-                            System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-                            DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by <font color='#2196F3'>"
-                            + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                            + "</font>");
             tvDetailArticleBody.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
-            tvDetailArticleInfos.setText(publishingDateAndAuthor);
-            Picasso.with(mContext).load(mCursor.getString(ArticleLoader.Query.PHOTO_URL)).into(mPhotoView);
+            Uri imageUri = Uri.parse(mCursor.getString(ArticleLoader.Query.PHOTO_URL));
+            //Picasso.with(mContext).load(imageUri).into(mPhotoView);
+            Picasso.with(mContext)
+                    .load(imageUri)
+                    .into(new Target() {
+                        @Override
+                        public void onBitmapLoaded (final Bitmap bitmap, Picasso.LoadedFrom from){
+                            /* Save the bitmap or do something with it here */
+                            //Set it in the ImageView
+                            mPhotoView.setImageBitmap(bitmap);
+                            setArticleInfosColor(bitmap,tvDetailArticleInfos);
+                        }
+
+                        @Override
+                        public void onBitmapFailed(Drawable errorDrawable) {
+
+                        }
+
+                        @Override
+                        public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                        }
+                    });
             mRootView.animate().alpha(1);
         }
+    }
+
+
+
+    public void setArticleInfosColor(Bitmap bitmap, TextView tvInfos) {
+        Spanned publishingDateAndAuthor = Html.fromHtml(
+                DateUtils.getRelativeTimeSpanString(
+                        mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
+                        System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                        DateUtils.FORMAT_ABBREV_ALL).toString()
+                        + " by " + mCursor.getString(ArticleLoader.Query.AUTHOR));
+        if (bitmap != null && !bitmap.isRecycled()) {
+            Palette p = createPaletteSync(bitmap);
+            Palette.Swatch vibrantSwatch = checkVibrantSwatch(p);
+            if (vibrantSwatch!=null){
+                tvInfos.setTextColor(vibrantSwatch.getRgb());
+            }
+        }
+        tvInfos.setText(publishingDateAndAuthor);
+    }
+
+    public Palette createPaletteSync(Bitmap bitmap) {
+        Palette p = Palette.from(bitmap).generate();
+        return p;
+    }
+
+    private Palette.Swatch checkVibrantSwatch(Palette p) {
+        Palette.Swatch vibrant = p.getVibrantSwatch();
+        if (vibrant != null) {
+            return vibrant;
+        }
+        return null;
     }
 
     @Override

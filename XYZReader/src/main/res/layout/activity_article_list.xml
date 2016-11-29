@@ -24,7 +24,6 @@
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <android.support.design.widget.AppBarLayout
-        app:elevation="@dimen/app_bar_elevation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <android.support.v7.widget.Toolbar
@@ -32,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_collapseMode="pin">
+            app:layout_scrollFlags="scroll|enterAlways">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

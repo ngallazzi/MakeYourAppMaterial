@@ -1,5 +1,6 @@
 package com.example.xyzreader.ui;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.Context;
@@ -13,9 +14,16 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ShareCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -50,6 +58,8 @@ public class ArticleDetailFragment extends Fragment implements
     private View mRootView;
     private ImageView mPhotoView;
     private Context mContext;
+    private AppCompatActivity mActivity;
+    private Toolbar tbDetailArticle;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -69,6 +79,7 @@ public class ArticleDetailFragment extends Fragment implements
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = context;
+        mActivity = (AppCompatActivity) getActivity();
     }
 
     @Override
@@ -90,6 +101,7 @@ public class ArticleDetailFragment extends Fragment implements
         // fragments because their mIndex is -1 (haven't been added to the activity yet). Thus,
         // we do this in onActivityCreated.
         getLoaderManager().initLoader(0, null, this);
+
     }
 
     @Override
@@ -97,7 +109,6 @@ public class ArticleDetailFragment extends Fragment implements
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mPhotoView = (ImageView) mRootView.findViewById(R.id.dhiwDetailArticlePhoto);
-
         mRootView.findViewById(R.id.fabShare).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,34 +118,49 @@ public class ArticleDetailFragment extends Fragment implements
                         .getIntent(), getString(R.string.action_share)));
             }
         });
-
+        setUpToolbar();
         bindViews();
         return mRootView;
+    }
+
+    private void setUpToolbar(){
+        tbDetailArticle = (Toolbar) mRootView.findViewById(R.id.tbDetailArticle);
+        mActivity.setSupportActionBar(tbDetailArticle);
+        mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tbDetailArticle.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
     }
 
     private void bindViews() {
         if (mRootView == null) {
             return;
         }
+        TextView tvDetailArticleBody = (TextView) mRootView.findViewById(R.id.tvDetailArticleBody);
+        TextView tvDetailArticleInfos = (TextView) mRootView.findViewById(R.id.tvDetailArticleInfos);
+        TextView tvDetailArticleTitle = (TextView) mRootView.findViewById(R.id.tvDetailArticleTitle);
 
-        TextView titleView = (TextView) mRootView.findViewById(R.id.tvDetailArticleTitle);
-        TextView bylineView = (TextView) mRootView.findViewById(R.id.tvDetailArticleByLine);
-        bylineView.setMovementMethod(new LinkMovementMethod());
-        TextView bodyView = (TextView) mRootView.findViewById(R.id.tvDetailArticleBody);
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
-
+        CollapsingToolbarLayout ctlDetailArticle = (CollapsingToolbarLayout) mRootView.findViewById(R.id.ctlDetailArticle);
+        tvDetailArticleBody.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
         if (mCursor != null) {
-            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
-            bylineView.setText(Html.fromHtml(
+            String itemTitle = mCursor.getString(ArticleLoader.Query.TITLE);
+            ctlDetailArticle.setTitle(itemTitle);
+            ctlDetailArticle.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+            tvDetailArticleTitle.setText(itemTitle);
+            Spanned publishingDateAndAuthor = Html.fromHtml(
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                             DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by <font color='#ffffff'>"
+                            + " by <font color='#2196F3'>"
                             + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                            + "</font>"));
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
+                            + "</font>");
+            tvDetailArticleBody.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
+            tvDetailArticleInfos.setText(publishingDateAndAuthor);
             Picasso.with(mContext).load(mCursor.getString(ArticleLoader.Query.PHOTO_URL)).into(mPhotoView);
             mRootView.animate().alpha(1);
         }

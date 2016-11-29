@@ -7,8 +7,8 @@
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.25</item>
     <dimen name="list_horizontal_padding">16dp</dimen>
     <dimen name="list_above_padding">8dp</dimen>
-    <dimen name="detail_image_max_height">212dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="article_infos_vertical_margin">16dp</dimen>
     <!-- Floating action button -->
     <dimen name="fab_resting_elevation">6dp</dimen>
     <dimen name="fab_pressed_translation">12dp</dimen>
